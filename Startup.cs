@@ -2,14 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BDAnimals.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using BDAnimals.Models;
+using BDAnimals.Repository.IRepository;
+using BDAnimals.Repository;
+using AutoMapper;
+using BDAnimals.Mappers;
 
 namespace BDAnimals
 {
@@ -26,6 +33,13 @@ namespace BDAnimals
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IScientificClassRepository, ScientificClassRepository>();
+            services.AddScoped<IAnimalRepository, AnimalRepository>();
+
+            services.AddAutoMapper(typeof(BDAnimalsMappings));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
