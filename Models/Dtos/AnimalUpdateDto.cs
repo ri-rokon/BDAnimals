@@ -32,9 +32,6 @@ namespace BDAnimals.Models.Dtos
         [Required]
 
         public int ScientificClassId { get; set; }
-        [Required]
-
-        public ScientificClass ScientificClass { get; set; }
 
         public byte[] Picture { get; set; }
 

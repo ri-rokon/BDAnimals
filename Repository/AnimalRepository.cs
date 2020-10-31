@@ -32,12 +32,12 @@ namespace BDAnimals.Repository
 
         public Animal GetAnimal(int animalId)
         {
-            return _context.Animal.FirstOrDefault(s => s.Id == animalId);
+            return _context.Animal.Include(c => c.ScientificClass).FirstOrDefault(c => c.Id == animalId);
         }
 
         public ICollection<Animal> GetAnimals()
         {
-            return _context.Animal.OrderBy(s => s.Name).ToList();
+            return _context.Animal.Include(c=>c.ScientificClass).OrderBy(s => s.Name).ToList();
         }
 
         public bool Save()
