@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BDAnimalsWeb.Models.Animal>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div >
+    <h1 class="text-center">Welcome to BD Animals</h1>
+    <p>BD Animals was founded on three guiding principles: accurate content you can trust, spreading knowledge on the animal kingdom, and giving back.</p>
+    <p class="text-justify">Today, more than 30,000 species are threatened with extinction, and thousands would already be lost without tireless conservation efforts. Knowing that
+    the first step toward conservation is spreading knowledge of the incredible animals species across our planet, Bd Animals was founded in 2020 to offer an
+    online encyclopedic resource across animals of all kinds.&nbsp;</p>
+</div>
+
+
+<h2 class="homepage_section_title" style="margin-top: 20px;">Explore all Animal Lists</h2>
+
+
+<div class="container">
+    <div class="row pb-4 backgroundWhite">
+        @foreach (var animal in Model)
+        {
+            
+            <div class="card pb-4 ml-4" style="width: 18rem;">
+                @{ var base64 = Convert.ToBase64String(animal.Picture);
+                    var finalStr = string.Format("data:image/jpg;base64,{0}", base64);
+                }
+                <img class="card-img-top rounded" style="max-height:200px;"  src="@finalStr" alt="@animal.Name" />              
+                <div class="card-body">
+
+                    <h4 class="card-title">@animal.Name</h4>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a asp-action="GetAnimal" asp-route-id="@animal.Id" class="btn btn-primary">Go Details</a>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

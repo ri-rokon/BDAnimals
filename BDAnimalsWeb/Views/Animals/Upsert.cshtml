@@ -1,0 +1,138 @@
+﻿@model BDAnimalsWeb.Models.ViewModels.AnimalVM
+@{ var title = "Create  Animal"; }
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Animal.Id != 0)
+        {
+            <input type="hidden" asp-for="Animal.Id" />
+            title = "Edit Animal";
+
+          }
+
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="col-8">
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Scientific Class
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(m => m.Animal.ScientificClassId,
+                                                                    Model.ScientificClass, "-Please select a park-", new { @class = "form-control" })
+                        <span asp-validation-for="Animal.ScientificClassId" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Name" class="form-control" />
+                        <span asp-validation-for="Animal.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Kingdom"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Kingdom" class="form-control" />
+                        <span asp-validation-for="Animal.Kingdom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Phylum"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Phylum" class="form-control" />
+                        <span asp-validation-for="Animal.Phylum" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Family"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Family" class="form-control" />
+                        <span asp-validation-for="Animal.Family" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Order"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Order" class="form-control" />
+                        <span asp-validation-for="Animal.Order" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Genus"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.Genus" class="form-control" />
+                        <span asp-validation-for="Animal.Genus" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.ScientificName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Animal.ScientificName" class="form-control" />
+                        <span asp-validation-for="Animal.ScientificName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Animal.Picture"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="file" asp-for="Animal.Picture" id="projectImage" name="files" multiple class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4 offset-4">
+                        <button type="submit" class="btn btn-primary form-control">
+                            @(Model.Animal.Id != 0 ? "Update" : "Create")
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="col-4 text-right" style="width:250px;">
+            @if (Model.Animal.Picture != null)
+            {
+                var base64 = Convert.ToBase64String(Model.Animal.Picture);
+                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src="@imgsrc" width="100%" />}
+        </div>
+    </div>
+
+</form>
+
+
+@section scripts{
+
+ 
+}
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

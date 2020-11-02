@@ -1,0 +1,65 @@
+﻿@model BDAnimalsWeb.Models.Animal
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-8">
+        <h3>@Model.Name</h3>
+        <p>@Model.ScientificName</p>
+    </div>
+    <div class="col=4">
+        <a class="btn btn-info" asp-action="index">Back</a>
+    </div>
+ 
+</div>
+
+<div class="container">
+    <div class="row p-4 backgroundWhite">
+        <div class="col-8">
+            @{ 
+                var b64 = Convert.ToBase64String(Model.Picture);
+                var src = string.Format("data:image/jpeg;base64,{0}", b64);
+            }
+            <img src="@src" class="img-fluid" alt="Alternate Text" />
+        </div>
+        <div class="col-4">
+            <h5>@Model.Name Scientific Calssification</h5>
+            
+            <table style="width:100%">
+                <tr>
+                    <th>Kingdom</th>
+                    <td>@Model.Kingdom</td>
+                </tr>
+                <tr>
+                    <th>Phylum</th>
+                    <td>@Model.Phylum</td>
+
+                </tr>
+                <tr>
+                    <th>Class</th>
+                    <td>@Model.ScientificClass.Name</td>
+                </tr>
+                <tr>
+                    <th>Order</th>
+                    <td>@Model.Order</td>
+                </tr>
+                <tr>
+                    <th>Family</th>
+                    <td>@Model.Family</td>
+                </tr>
+                <tr>
+                    <th>Genus</th>
+                    <td>@Model.Genus</td>
+                </tr>
+                <tr>
+                    <th>Scientific Name</th>
+                    <td>@Model.ScientificName</td>
+                </tr>
+                
+            </table>
+
+
+        </div>
+    </div>
+</div>
