@@ -8890,11 +8890,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rirok\\source\\repos\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
+      "projectUniqueName": "C:\\Users\\rirok\\Desktop\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
       "projectName": "BDAnimalsWeb",
-      "projectPath": "C:\\Users\\rirok\\source\\repos\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
+      "projectPath": "C:\\Users\\rirok\\Desktop\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
       "packagesPath": "C:\\Users\\rirok\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rirok\\source\\repos\\BDAnimals\\BDAnimalsWeb\\obj\\",
+      "outputPath": "C:\\Users\\rirok\\Desktop\\BDAnimals\\BDAnimalsWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rirok\\AppData\\Roaming\\NuGet\\NuGet.Config",

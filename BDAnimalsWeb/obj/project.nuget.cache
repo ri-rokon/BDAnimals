@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S48i2XBTDVC6RJh3DtAO5BzF75egRzXL66K1HlSkz+KadaLVt+wq5hBeCcjhjyERlZuCx+eZL50GG77neWo2vw==",
+  "dgSpecHash": "q0jDROGYWjrznhs7aJtu3x8a0VEwppC+kdauId+YW29fdb8JiGjWHqfT/O+W+WriIpfQYYCd6EFeRnorH/+Nyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rirok\\source\\repos\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
+  "projectFilePath": "C:\\Users\\rirok\\Desktop\\BDAnimals\\BDAnimalsWeb\\BDAnimalsWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rirok\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\rirok\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.9\\microsoft.aspnetcore.mvc.razor.extensions.3.1.9.nupkg.sha512",
