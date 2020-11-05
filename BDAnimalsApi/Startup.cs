@@ -17,6 +17,7 @@ using BDAnimalsApi.Repository.IRepository;
 using BDAnimalsApi.Repository;
 using AutoMapper;
 using BDAnimalsApi.Mappers;
+using System.Reflection;
 
 namespace BDAnimalsApi
 {
@@ -39,6 +40,21 @@ namespace BDAnimalsApi
             services.AddScoped<IAnimalRepository, AnimalRepository>();
 
             services.AddAutoMapper(typeof(BDAnimalsMappings));
+            services.AddSwaggerGen(options=> {
+                options.SwaggerDoc("BDAnimalApiSpec",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "BDAnimal API",
+                        Version = "1",
+                        Contact= new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Name="Ridwanul Islam",
+                            Email="ridwan.pust@gmail.com"
+                        }
+                        
+                    });
+            });
+            
             
         }
 
@@ -51,7 +67,12 @@ namespace BDAnimalsApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(options=> {
+                options.SwaggerEndpoint("/swagger/BDAnimalApiSpec/swagger.json","BDAnimal API");
+                options.RoutePrefix="";
+            
+            });
             app.UseRouting();
 
             app.UseAuthorization();

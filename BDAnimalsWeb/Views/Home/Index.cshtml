@@ -20,7 +20,7 @@
         @foreach (var animal in Model)
         {
             
-            <div class="card pb-4 ml-4" style="width: 18rem;">
+            <div class="card pb-4 m-4" style="width: 18rem;">
                 @{ var base64 = Convert.ToBase64String(animal.Picture);
                     var finalStr = string.Format("data:image/jpg;base64,{0}", base64);
                 }
